@@ -26,16 +26,26 @@ const PromptConfigPanel: React.FC<PromptConfigPanelProps> = ({
   onSave = () => {},
   onClose = () => {},
 }) => {
-  const [systemPrompt, setSystemPrompt] = useState(promptConfig.SYSTEM_PROMPT);
-  const [analysisPrompt, setAnalysisPrompt] = useState(
-    promptConfig.ANALYSIS_PROMPT,
+  // Get stored values from localStorage or use defaults
+  const [systemPrompt, setSystemPrompt] = useState(
+    localStorage.getItem("SYSTEM_PROMPT") || promptConfig.SYSTEM_PROMPT,
   );
-  const [model, setModel] = useState(promptConfig.MODEL_CONFIG.model);
+  const [analysisPrompt, setAnalysisPrompt] = useState(
+    localStorage.getItem("ANALYSIS_PROMPT") || promptConfig.ANALYSIS_PROMPT,
+  );
+
+  // Parse model config from localStorage or use defaults
+  const storedModelConfig = localStorage.getItem("MODEL_CONFIG");
+  const parsedModelConfig = storedModelConfig
+    ? JSON.parse(storedModelConfig)
+    : promptConfig.MODEL_CONFIG;
+
+  const [model, setModel] = useState(parsedModelConfig.model);
   const [temperature, setTemperature] = useState(
-    promptConfig.MODEL_CONFIG.temperature.toString(),
+    parsedModelConfig.temperature.toString(),
   );
   const [maxTokens, setMaxTokens] = useState(
-    promptConfig.MODEL_CONFIG.max_tokens.toString(),
+    parsedModelConfig.max_tokens.toString(),
   );
 
   const handleReset = () => {
