@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# 01234 Concept Visualization Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Una aplicación web que analiza textos para generar visualizaciones interactivas de conceptos interconectados basados en el Modelo 01234, categorizando ideas en cinco niveles fundamentales (Potencialidad, Unidad, Dualidad, Conexión y Manifestación).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características Principales
 
-## Expanding the ESLint configuration
+- **Panel de Entrada de Texto**: Editor limpio para ingresar texto y botón de análisis que activa el procesamiento NLP.
+- **Canvas de Visualización Interactivo**: Muestra nodos codificados por colores (uno para cada concepto) conectados por líneas de relación, con cada nodo asignado a uno de los cinco niveles 01234.
+- **Controles de Visualización**: Herramientas para hacer zoom, mover el canvas y activar efectos visuales.
+- **Barra Lateral de Detalles**: Muestra el razonamiento detrás de la categorización de cada concepto.
+- **Funcionalidad de Exportación**: Permite a los usuarios guardar visualizaciones como imágenes o compartirlas.
+- **Entrenamiento del Modelo**: Panel para personalizar cómo el modelo analiza los textos mediante ejemplos y prompts personalizados.
+- **Configuración de Prompts**: Interfaz para modificar los prompts del sistema y análisis, así como los ajustes del modelo.
+- **Interfaz Minimalista**: Diseño centrado en la visualización, con un esquema de colores que refleja los cinco niveles del Modelo 01234.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tecnologías
 
-- Configure the top-level `parserOptions` property like this:
+- React + TypeScript
+- Vite
+- OpenAI API
+- Tailwind CSS
+- Shadcn/UI
+- Canvas API para visualizaciones
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Modelo 01234
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+El Modelo 01234 categoriza conceptos en cinco niveles fundamentales:
+
+0. **Potencialidad**: El reino de la posibilidad pura, el potencial y lo no manifestado.
+1. **Unidad**: El nivel de la unicidad, la totalidad y la no dualidad.
+2. **Dualidad**: El nivel de los opuestos, las polaridades y los pares complementarios.
+3. **Conexión**: El nivel de las relaciones, las redes y las interacciones.
+4. **Manifestación**: El nivel de la expresión física, la realidad concreta y los resultados tangibles.
