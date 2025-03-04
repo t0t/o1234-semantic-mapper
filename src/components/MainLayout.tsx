@@ -38,7 +38,8 @@ const MainLayout: React.FC = () => {
 
   useEffect(() => {
     // Check if OpenAI API key is configured
-    if (!isOpenAIConfigured()) {
+    // Only show the dialog in development mode
+    if (!isOpenAIConfigured() && !import.meta.env.PROD) {
       setApiKeyDialogOpen(true);
     }
   }, []);

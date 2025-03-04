@@ -1,17 +1,13 @@
 import { OpenAI } from "openai";
+import { getApiKey } from "./env";
 
-import { OPENAI_API_KEY } from "../config/api-keys";
-
-// Try to get API key from environment variables first, then from localStorage, then from config file
-const apiKey =
-  import.meta.env.VITE_OPENAI_API_KEY ||
-  (window as any).OPENAI_API_KEY ||
-  OPENAI_API_KEY ||
-  "";
-
+// Initialize with null, will be created on demand
 let openai = null;
 
 export const getOpenAIClient = () => {
+  const apiKey = getApiKey();
+
+  // Create a new client if we don't have one or if the API key has changed
   if (!openai && apiKey) {
     openai = new OpenAI({
       apiKey,
@@ -22,5 +18,5 @@ export const getOpenAIClient = () => {
 };
 
 export const isOpenAIConfigured = () => {
-  return !!apiKey;
+  return !!getApiKey();
 };

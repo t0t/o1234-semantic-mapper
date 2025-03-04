@@ -33,3 +33,31 @@ El Modelo 01234 categoriza conceptos en cinco niveles fundamentales:
 2. **Dualidad**: El nivel de los opuestos, las polaridades y los pares complementarios.
 3. **Conexión**: El nivel de las relaciones, las redes y las interacciones.
 4. **Manifestación**: El nivel de la expresión física, la realidad concreta y los resultados tangibles.
+
+## Configuración
+
+### Protección de la clave API
+
+Para proteger tu clave API de OpenAI y evitar que se exponga en GitHub:
+
+1. Copia el archivo `.env.example` a un nuevo archivo llamado `.env.local`:
+   ```
+   cp .env.example .env.local
+   ```
+
+2. Edita el archivo `.env.local` y añade tu clave API de OpenAI:
+   ```
+   VITE_OPENAI_API_KEY=sk-tu-clave-api-aqui
+   ```
+
+3. El archivo `.env.local` está incluido en `.gitignore` para asegurar que nunca se suba a GitHub.
+
+4. Para despliegues en producción, configura la variable de entorno `VITE_OPENAI_API_KEY` en tu plataforma de hosting.
+
+### Desarrollo local
+
+Si no tienes una clave API configurada en las variables de entorno y estás en modo desarrollo, la aplicación mostrará un diálogo para introducirla manualmente, que se guardará en el almacenamiento local del navegador.
+
+### Producción
+
+En producción, la clave API solo se puede configurar mediante variables de entorno en el servidor. El diálogo para introducir la clave API no se mostrará en producción, y la aplicación no utilizará claves almacenadas en localStorage por razones de seguridad.
