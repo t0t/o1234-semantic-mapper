@@ -61,3 +61,17 @@ Si no tienes una clave API configurada en las variables de entorno y estás en m
 ### Producción
 
 En producción, la clave API solo se puede configurar mediante variables de entorno en el servidor. El diálogo para introducir la clave API no se mostrará en producción, y la aplicación no utilizará claves almacenadas en localStorage por razones de seguridad.
+
+## Despliegue en Vercel
+
+Este proyecto está configurado para ser desplegado fácilmente en Vercel:
+
+1. Crea una cuenta en [Vercel](https://vercel.com) si aún no tienes una.
+
+2. Conecta tu repositorio de GitHub a Vercel.
+
+3. Configura la variable de entorno `VITE_OPENAI_API_KEY` en la configuración del proyecto en Vercel.
+
+4. Despliega el proyecto. Vercel detectará automáticamente que es un proyecto Vite y utilizará la configuración del archivo `vercel.json`.
+
+5. La aplicación estará disponible en la URL proporcionada por Vercel una vez completado el despliegue.

@@ -2,11 +2,11 @@
 // You can modify this file to customize how the AI analyzes text
 
 // The system prompt that sets the AI's role and expertise
-export let SYSTEM_PROMPT =
+export const SYSTEM_PROMPT =
   "Eres un experto en análisis semántico y en el Modelo 01234 de niveles de realidad. Tu especialidad es extraer conceptos significativos de textos y organizarlos en una estructura visual coherente. Tienes habilidad para identificar las ideas principales, categorizarlas según su nivel de abstracción o manifestación, y establecer relaciones significativas entre ellas. Tu análisis siempre se basa estrictamente en el contenido del texto proporcionado, extrayendo conceptos que aparecen explícitamente en él.";
 
 // The main analysis prompt that explains the 01234 model and instructs the AI
-export let ANALYSIS_PROMPT = `
+export const ANALYSIS_PROMPT = `
 Analiza profundamente el siguiente texto e identifica los conceptos clave según el Modelo 01234 de niveles de realidad. Tu tarea es extraer los conceptos más significativos y estructurarlos de manera coherente.
 
 Primero, lee cuidadosamente el texto completo para comprender su esencia. Luego, identifica los conceptos fundamentales que representan las ideas principales. Estos conceptos deben ser sustantivos o frases nominales concretas extraídas directamente del texto, no términos genéricos o abstractos que no aparezcan explícitamente.
@@ -66,7 +66,7 @@ Text to analyze:
 `;
 
 // Model configuration
-export let MODEL_CONFIG = {
+export const MODEL_CONFIG = {
   // The model to use for analysis
   model: "gpt-3.5-turbo-1106", // This model supports JSON response format
 

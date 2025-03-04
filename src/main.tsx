@@ -4,12 +4,9 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
-// Check for OpenAI API key in localStorage and set it to env
+// Check for OpenAI API key in localStorage
 const storedApiKey = localStorage.getItem("OPENAI_API_KEY");
-if (storedApiKey) {
-  // Set it to a global variable that can be accessed by the app
-  window.OPENAI_API_KEY = storedApiKey;
-}
+// We'll use this in the app via the getApiKey function instead of setting it globally
 
 import { TempoDevtools } from "tempo-devtools";
 TempoDevtools.init();

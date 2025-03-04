@@ -93,15 +93,12 @@ const MainLayout: React.FC = () => {
     setSelectedConcept(null);
   };
 
-  const handlePromptConfigSave = async (config: any) => {
+  const handlePromptConfigSave = (config: any) => {
     try {
-      // Import the promptConfig module
-      const promptConfig = await import("../lib/promptConfig");
-
-      // Update the module variables
-      promptConfig.SYSTEM_PROMPT = config.systemPrompt;
-      promptConfig.ANALYSIS_PROMPT = config.analysisPrompt;
-      promptConfig.MODEL_CONFIG = config.modelConfig;
+      // Store the configuration in localStorage
+      localStorage.setItem("SYSTEM_PROMPT", config.systemPrompt);
+      localStorage.setItem("ANALYSIS_PROMPT", config.analysisPrompt);
+      localStorage.setItem("MODEL_CONFIG", JSON.stringify(config.modelConfig));
 
       console.log("New prompt configuration saved:", config);
       setPromptConfigDialogOpen(false);

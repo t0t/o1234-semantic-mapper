@@ -1,5 +1,9 @@
 import { getOpenAIClient } from "./openai";
-import { SYSTEM_PROMPT, ANALYSIS_PROMPT, MODEL_CONFIG } from "./promptConfig";
+import {
+  SYSTEM_PROMPT as DEFAULT_SYSTEM_PROMPT,
+  ANALYSIS_PROMPT as DEFAULT_ANALYSIS_PROMPT,
+  MODEL_CONFIG as DEFAULT_MODEL_CONFIG,
+} from "./promptConfig";
 
 // Define the structure for concept data
 export interface Concept {
@@ -35,6 +39,17 @@ export async function analyzeText(
   }
 
   try {
+    // Get stored configuration or use defaults
+    const storedSystemPrompt = localStorage.getItem("SYSTEM_PROMPT");
+    const storedAnalysisPrompt = localStorage.getItem("ANALYSIS_PROMPT");
+    const storedModelConfig = localStorage.getItem("MODEL_CONFIG");
+
+    const SYSTEM_PROMPT = storedSystemPrompt || DEFAULT_SYSTEM_PROMPT;
+    const ANALYSIS_PROMPT = storedAnalysisPrompt || DEFAULT_ANALYSIS_PROMPT;
+    const MODEL_CONFIG = storedModelConfig
+      ? JSON.parse(storedModelConfig)
+      : DEFAULT_MODEL_CONFIG;
+
     // Check if the model supports response_format
     const modelConfig = { ...MODEL_CONFIG };
     const supportsJsonFormat = [

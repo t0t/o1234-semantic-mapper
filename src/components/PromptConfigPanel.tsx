@@ -12,7 +12,12 @@ interface PromptConfigPanelProps {
   onSave?: (config: {
     systemPrompt: string;
     analysisPrompt: string;
-    modelConfig: typeof MODEL_CONFIG;
+    modelConfig: {
+      model: string;
+      temperature: number;
+      max_tokens: number;
+      response_format?: { type: string };
+    };
   }) => void;
   onClose?: () => void;
 }
@@ -51,7 +56,12 @@ const PromptConfigPanel: React.FC<PromptConfigPanelProps> = ({
       "gpt-3.5-turbo-0125",
     ].includes(model);
 
-    const modelConfig = {
+    const modelConfig: {
+      model: string;
+      temperature: number;
+      max_tokens: number;
+      response_format?: { type: string };
+    } = {
       model,
       temperature: parseFloat(temperature),
       max_tokens: parseInt(maxTokens, 10),

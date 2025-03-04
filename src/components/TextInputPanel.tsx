@@ -61,7 +61,7 @@ const TextInputPanel: React.FC<TextInputPanelProps> = ({
                       ) : !isOpenAIConfigured() ? (
                         <>
                           <AlertCircle className="mr-2 h-4 w-4" />
-                          API Key Required
+                          No API Key Found
                         </>
                       ) : (
                         <>
